@@ -87,13 +87,13 @@
         <div id="testimonial-slider" class="flex overflow-hidden">
           <div class="min-w-full px-6">
             <div class="bg-white p-6 rounded-lg shadow">
-              <p class="text-green-600 ">"The best dental experience I've ever had! It is incredibly kind and professional."</p>
+              <p class="text-indigo-600 ">"The best dental experience I've ever had! It is incredibly kind and professional."</p>
               <h3 class="mt-4 text-lg font-semibold text-gray-800">- Shadrack.</h3>
             </div>
           </div>
           <div class="min-w-full px-6">
             <div class="bg-white p-6 rounded-lg shadow">
-              <p class="text-green-600 ">"Affordable and top-quality care. My smile has never looked better!"</p>
+              <p class="text-indigo-600 ">"Affordable and top-quality care. My smile has never looked better!"</p>
               <h3 class="mt-4 text-lg font-semibold text-gray-800">- Eliam.</h3>
             </div>
           </div>
@@ -109,26 +109,19 @@
   </section>
 
   <script>
-    const slider = document.getElementById('testimonial-slider');
-    const prevButton = document.getElementById('prev');
-    const nextButton = document.getElementById('next');
-    let currentSlide = 0;
+     const testimonials = [
+      { text: "I had a great experience at the clinic! The staff was friendly and professional.", author: "- John Doe" },
+      { text: "The dentists are highly skilled and made me feel very comfortable.", author: "- Jane Smith" },
+      { text: "Highly recommend! My teeth have never been healthier.", author: "- Emily Davis" }
+    ];
 
-    function updateSlider() {
-      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
+    let currentTestimonialIndex = 0;
 
-    prevButton.addEventListener('click', () => {
-      currentSlide = (currentSlide > 0) ? currentSlide - 1 : slider.children.length - 1;
-      updateSlider();
+    document.getElementById("next-testimonial").addEventListener("click", () => {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      document.getElementById("testimonial-text").textContent = testimonials[currentTestimonialIndex].text;
+      document.getElementById("testimonial-author").textContent = testimonials[currentTestimonialIndex].author;
     });
-
-    nextButton.addEventListener('click', () => {
-      currentSlide = (currentSlide < slider.children.length - 1) ? currentSlide + 1 : 0;
-      updateSlider();
-    });
-
-    updateSlider();
   </script>
   <section>
   <div class="min-w-full px-6">
@@ -137,6 +130,29 @@
               <<h3 class="mt-4 text-lg font-semibold text-gray-800">- Shadrack.</h3>
             </div>
         </section>
+         <section id="explore" class="py-12 px-6 bg-gray-50">
+    <h2 class="text-2xl font-semibold text-red-800 text-center">Explore Dental Care</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+                <img src="https://via.placeholder.com/150" alt="Oral Hygiene" class="w-full h-32 object-cover rounded-lg">
+        <h3 class="text-lg font-semibold text-red-800">Oral Hygiene</h3>
+        <p class="text-blue-600 mt-2">Learn how to maintain proper oral hygiene to keep your teeth healthy.</p>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-600">Learn More</button>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <img src="https://via.placeholder.com/150" alt="Healthy Eating" class="w-full h-32 object-cover rounded-lg">
+        <h3 class="text-lg font-semibold text-red-800">Healthy Eating</h3>
+        <p class="text-blue-600 mt-2">Discover foods that are beneficial for your teeth and gums.</p>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-600">Learn More</button>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <img src="https://via.placeholder.com/150" alt="Dental Procedures" class="w-full h-32 object-cover rounded-lg">
+        <h3 class="text-lg font-semibold text-red-800">Dental Procedures</h3>
+        <p class="text-blue-600 mt-2">Get insights into common dental procedures and what to expect.</p>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-600">Learn More</button>
+      </div>
+    </div>
+  </section>
   <footer>
   <footer class="bg-gray-800 text-white py-6">
     <div class="max-w-6xl mx-auto px-6">
